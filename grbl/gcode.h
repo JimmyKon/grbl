@@ -36,8 +36,8 @@
 #define MODAL_GROUP_G4 4 // [G91.1] Arc IJK distance mode
 #define MODAL_GROUP_G5 5 // [G93,G94] Feed rate mode
 #define MODAL_GROUP_G6 6 // [G20,G21] Units
-#define MODAL_GROUP_G7 7 // [G40] Cutter radius compensation mode. G41/42 NOT SUPPORTED.
-#define MODAL_GROUP_G8 8 // [G43.1,G49] Tool length offset
+// #define MODAL_GROUP_G7 7 // [G40] Cutter radius compensation mode. G41/42 NOT SUPPORTED.
+// #define MODAL_GROUP_G8 8 // [G43.1,G49] Tool length offset
 #define MODAL_GROUP_G12 9 // [G54,G55,G56,G57,G58,G59] Coordinate system selection
 #define MODAL_GROUP_G13 10 // [G61] Control mode
 
@@ -68,12 +68,12 @@
 // Modal Group G1: Motion modes
 #define MOTION_MODE_SEEK 0 // G0 (Default: Must be zero)
 #define MOTION_MODE_LINEAR 1 // G1 (Do not alter value)
-#define MOTION_MODE_CW_ARC 2  // G2 (Do not alter value)
-#define MOTION_MODE_CCW_ARC 3  // G3 (Do not alter value)
+// #define MOTION_MODE_CW_ARC 2  // G2 (Do not alter value)
+// #define MOTION_MODE_CCW_ARC 3  // G3 (Do not alter value)
 #define MOTION_MODE_PROBE_TOWARD 140 // G38.2 (Do not alter value)
-#define MOTION_MODE_PROBE_TOWARD_NO_ERROR 141 // G38.3 (Do not alter value)
-#define MOTION_MODE_PROBE_AWAY 142 // G38.4 (Do not alter value)
-#define MOTION_MODE_PROBE_AWAY_NO_ERROR 143 // G38.5 (Do not alter value)
+// #define MOTION_MODE_PROBE_TOWARD_NO_ERROR 141 // G38.3 (Do not alter value)
+// #define MOTION_MODE_PROBE_AWAY 142 // G38.4 (Do not alter value)
+// #define MOTION_MODE_PROBE_AWAY_NO_ERROR 143 // G38.5 (Do not alter value)
 #define MOTION_MODE_NONE 80 // G80 (Do not alter value)
 
 // Modal Group G2: Plane select
@@ -185,9 +185,9 @@ typedef struct {
   uint8_t units;           // {G20,G21}
   uint8_t distance;        // {G90,G91}
   // uint8_t distance_arc; // {G91.1} NOTE: Don't track. Only default supported.
-  uint8_t plane_select;    // {G17,G18,G19}
+  // uint8_t plane_select;    // {G17,G18,G19}
   // uint8_t cutter_comp;  // {G40} NOTE: Don't track. Only default supported.
-  uint8_t tool_length;     // {G43.1,G49}
+  // uint8_t tool_length;     // {G43.1,G49}
   uint8_t coord_select;    // {G54,G55,G56,G57,G58,G59}
   // uint8_t control;      // {G61} NOTE: Don't track. Only default supported.
   uint8_t program_flow;    // {M0,M1,M2,M30}

@@ -285,8 +285,8 @@ void report_gcode_modes()
   report_util_gcode_modes_G();
   print_uint8_base10(gc_state.modal.coord_select+54);
 
-  report_util_gcode_modes_G();
-  print_uint8_base10(gc_state.modal.plane_select+17);
+  // report_util_gcode_modes_G();
+  // print_uint8_base10(gc_state.modal.plane_select+17);
 
   report_util_gcode_modes_G();
   print_uint8_base10(21-gc_state.modal.units);

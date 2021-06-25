@@ -50,8 +50,8 @@
 
 #define CMD_RESET 0x18 // ctrl-x.
 #define CMD_STATUS_REPORT '?'
-#define CMD_CYCLE_START '~'
-#define CMD_FEED_HOLD '!'
+// #define CMD_CYCLE_START '~'
+// #define CMD_FEED_HOLD '!'
 
 // NOTE: All override realtime commands must be in the extended ASCII character set, starting
 // at character value 128 (0x80) and up to 255 (0xFF). If the normal set of realtime commands,
@@ -161,7 +161,7 @@
 // Upon a successful probe cycle, this option provides immediately feedback of the probe coordinates
 // through an automatically generated message. If disabled, users can still access the last probe
 // coordinates through Grbl '$#' print parameters.
-#define MESSAGE_PROBE_COORDINATES // Enabled by default. Comment to disable.
+// #define MESSAGE_PROBE_COORDINATES // Enabled by default. Comment to disable.
 
 // Enables a second coolant control pin via the mist coolant g-code command M7 on the Arduino Uno
 // analog pin 4. Only use this option if you require a second coolant control pin.
