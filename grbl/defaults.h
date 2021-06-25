@@ -63,6 +63,10 @@
   #define DEFAULT_HOMING_SEEK_RATE 500.0 // mm/min
   #define DEFAULT_HOMING_DEBOUNCE_DELAY 250 // msec (0-65k)
   #define DEFAULT_HOMING_PULLOFF 1.0 // mm
+  #define DEFAULT_A_STEPS_PER_MM 250.0
+  #define DEFAULT_A_MAX_RATE 500.0 // mm/min
+  #define DEFAULT_A_ACCELERATION (10.0*60*60) // 10*60*60 mm/min^2 = 10 mm/sec^2
+  #define DEFAULT_A_MAX_TRAVEL 200.0 // mm
 #endif
 
 #ifdef DEFAULTS_SHERLINE_5400
