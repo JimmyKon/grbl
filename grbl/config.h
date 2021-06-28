@@ -267,12 +267,12 @@
 // be sent without potential performance issues.
 // NOTE: The options below are here only provide a way to disable certain data fields if a unique
 // situation demands it, but be aware GUIs may depend on this data. If disabled, it may not be compatible.
-#define REPORT_FIELD_BUFFER_STATE // Default enabled. Comment to disable.
-#define REPORT_FIELD_PIN_STATE // Default enabled. Comment to disable.
-#define REPORT_FIELD_CURRENT_FEED_SPEED // Default enabled. Comment to disable.
-#define REPORT_FIELD_WORK_COORD_OFFSET // Default enabled. Comment to disable.
-#define REPORT_FIELD_OVERRIDES // Default enabled. Comment to disable.
-#define REPORT_FIELD_LINE_NUMBERS // Default enabled. Comment to disable.
+//#define REPORT_FIELD_BUFFER_STATE // Default enabled. Comment to disable.
+//#define REPORT_FIELD_PIN_STATE // Default enabled. Comment to disable.
+//#define REPORT_FIELD_CURRENT_FEED_SPEED // Default enabled. Comment to disable.
+//#define REPORT_FIELD_WORK_COORD_OFFSET // Default enabled. Comment to disable.
+//#define REPORT_FIELD_OVERRIDES // Default enabled. Comment to disable.
+//#define REPORT_FIELD_LINE_NUMBERS // Default enabled. Comment to disable.
 
 // Some status report data isn't necessary for realtime, only intermittently, because the values don't
 // change often. The following macros configures how many times a status report needs to be called before
@@ -331,7 +331,7 @@
 // Sets which axis the tool length offset is applied. Assumes the spindle is always parallel with
 // the selected axis with the tool oriented toward the negative direction. In other words, a positive
 // tool length offset value is subtracted from the current location.
-#define TOOL_LENGTH_OFFSET_AXIS Z_AXIS // Default z-axis. Valid values are X_AXIS, Y_AXIS, or Z_AXIS.
+// #define TOOL_LENGTH_OFFSET_AXIS Z_AXIS // Default z-axis. Valid values are X_AXIS, Y_AXIS, or Z_AXIS.
 
 // Enables variable spindle output voltage for different RPM values. On the Arduino Uno, the spindle
 // enable pin will output 5V for maximum RPM with 256 intermediate levels and 0V when disabled.

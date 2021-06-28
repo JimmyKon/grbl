@@ -49,7 +49,7 @@
 #define BITFLAG_INVERT_PROBE_PIN   bit(BIT_INVERT_PROBE_PIN)
 
 // Define status reporting boolean enable bit flags in settings.status_report_mask
-#define BITFLAG_RT_STATUS_POSITION_TYPE     bit(0)
+#define BITFLAG_RT_STATUS_POSITION_TYPE     bit(1)
 #define BITFLAG_RT_STATUS_BUFFER_STATE      bit(1)
 
 // Define settings restore bitflags.

@@ -37,11 +37,21 @@ static void report_util_gcode_modes_G() { printPgmString(PSTR(" G")); }
 static void report_util_gcode_modes_M() { printPgmString(PSTR(" M")); }
 // static void report_util_comment_line_feed() { serial_write(')'); report_util_line_feed(); }
 static void report_util_axis_values(float *axis_value) {
+  printPgmString(PSTR("X:"));
+  printFloat_CoordValue(axis_value[X_AXIS]);
+  printPgmString(PSTR(" Y:"));
+  printFloat_CoordValue(axis_value[Y_AXIS]);
+  printPgmString(PSTR(" Z:"));
+  printFloat_CoordValue(axis_value[Z_AXIS]);
+  printPgmString(PSTR(" A:"));
+  printFloat_CoordValue(axis_value[A_AXIS]);
+  /*
   uint8_t idx;
   for (idx=0; idx<N_AXIS; idx++) {
-    printFloat_CoordValue(axis_value[idx]);
-    if (idx < (N_AXIS-1)) { serial_write(','); }
+    
+    if (idx < (N_AXIS-1)) { serial_write(' '); }
   }
+  */
 }
 
 /*
@@ -264,8 +274,8 @@ void report_ngc_parameters()
   printPgmString(PSTR("[G92:")); // Print G92,G92.1 which are not persistent in memory
   report_util_axis_values(gc_state.coord_offset);
   report_util_feedback_line_feed();
-  printPgmString(PSTR("[TLO:")); // Print tool length offset value
-  printFloat_CoordValue(gc_state.tool_length_offset);
+  // printPgmString(PSTR("[TLO:")); // Print tool length offset value
+  // printFloat_CoordValue(gc_state.tool_length_offset);
   report_util_feedback_line_feed();
   report_probe_parameters(); // Print probe parameters. Not persistent in memory.
 }
@@ -472,6 +482,7 @@ void report_realtime_status()
   system_convert_array_steps_to_mpos(print_position,current_position);
 
   // Report current machine state and sub-states
+  /*
   serial_write('<');
   switch (sys.state) {
     case STATE_IDLE: printPgmString(PSTR("Idle")); break;
@@ -506,25 +517,28 @@ void report_realtime_status()
     case STATE_SLEEP: printPgmString(PSTR("Sleep")); break;
   }
 
+*/
   float wco[N_AXIS];
   if (bit_isfalse(settings.status_report_mask,BITFLAG_RT_STATUS_POSITION_TYPE) ||
       (sys.report_wco_counter == 0) ) {
     for (idx=0; idx< N_AXIS; idx++) {
       // Apply work coordinate offsets and tool length offset to current position.
       wco[idx] = gc_state.coord_system[idx]+gc_state.coord_offset[idx];
-      if (idx == TOOL_LENGTH_OFFSET_AXIS) { wco[idx] += gc_state.tool_length_offset; }
+      // if (idx == TOOL_LENGTH_OFFSET_AXIS) { wco[idx] += gc_state.tool_length_offset; }
       if (bit_isfalse(settings.status_report_mask,BITFLAG_RT_STATUS_POSITION_TYPE)) {
         print_position[idx] -= wco[idx];
       }
     }
   }
 
+/*
   // Report machine position
   if (bit_istrue(settings.status_report_mask,BITFLAG_RT_STATUS_POSITION_TYPE)) {
     printPgmString(PSTR("|MPos:"));
   } else {
     printPgmString(PSTR("|WPos:"));
   }
+*/
   report_util_axis_values(print_position);
 
   // Returns planner and serial read buffer states.
@@ -650,7 +664,7 @@ void report_realtime_status()
     }
   #endif
 
-  serial_write('>');
+  // serial_write('>');
   report_util_line_feed();
 }
 
